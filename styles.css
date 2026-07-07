@@ -782,3 +782,45 @@ textarea.field{resize:vertical;min-height:90px}
 
 /* press logos as images (from mockup) */
 .press .pr img{height:24px;width:auto;max-width:150px;object-fit:contain;display:block;opacity:.92}
+
+/* ============================================================
+   MOBILE PASS: NZ-visible globe, smaller CTAs, stacked
+   sections, small Holly portrait
+   ============================================================ */
+
+/* Globe: map NZ (63%,62% of image) to (50%,36%) of hero — visible and higher */
+@media(max-width:900px){
+  .globe{
+    left:50%;top:36%;right:auto;
+    transform:translate(-63%,-62%);
+    width:96vw;height:96vw;max-width:96vw;max-height:96vw;
+    opacity:.55;
+  }
+}
+
+/* Stack every inline two/three-column wrap (inline styles outrank media
+   queries, so this needs !important) */
+@media(max-width:760px){
+  [style*="grid-template-columns"]{grid-template-columns:1fr !important}
+  .cities{grid-template-columns:1fr;gap:16px}
+  .cities .ph.city{min-height:220px}
+}
+
+/* Smaller CTAs on phones */
+@media(max-width:640px){
+  .btn{padding:12px 16px;font-size:.72rem;gap:8px;letter-spacing:.04em}
+  .btn svg{width:14px;height:14px}
+  .hero-actions{gap:10px}
+}
+
+/* Holly on mobile: small, below the hero copy */
+@media(max-width:1024px){
+  .hero:has(.portrait){display:flex;flex-direction:column}
+  .hero:has(.portrait) .wrap{order:1;width:100%}
+  .portrait{
+    display:block;order:2;position:relative;
+    left:auto;right:auto;top:auto;bottom:auto;transform:none;
+    height:300px;width:auto;aspect-ratio:784/1312;
+    margin:4px auto 12px;
+  }
+}
